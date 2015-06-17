@@ -31,7 +31,7 @@
 $LANG->includeLLFile('EXT:ics_web_awstats/mod1/locallang.xml');
 $BE_USER->modAccess($MCONF,1);	// This checks permissions and exits if the users has no permission for entry.
 
-class tx_icswebawstats_module1 extends t3lib_SCbase {
+class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 	
 	var $pageinfo;
 
@@ -39,14 +39,14 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 		parent::init();
 		
 		// Initialize document
-		$this->doc = t3lib_div::makeInstance('template');
+		$this->doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('template');
 		$this->doc->setModuleTemplate(
-			t3lib_extMgm::extPath('ics_web_awstats') . 'mod1/mod_template.html'
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ics_web_awstats') . 'mod1/mod_template.html'
 		);
 		$this->doc->backPath = $GLOBALS['BACK_PATH'];
 		$this->doc->addStyleSheet(
 			'tx_icswebawstats',
-			'../' . t3lib_extMgm::siteRelPath('ics_web_awstats') . 'mod1/mod_styles.css'
+			'../' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('ics_web_awstats') . 'mod1/mod_styles.css'
 		);
 	}
 	
@@ -59,7 +59,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 
 		// Access check!
 		// The page will show only if there is a valid page and if this page may be viewed by the user
-		$this->pageinfo = t3lib_BEfunc::readPageAccess($this->id,$this->perms_clause);
+		$this->pageinfo = \TYPO3\CMS\Backend\Utility\BackendUtility::readPageAccess($this->id,$this->perms_clause);
 		$access = is_array($this->pageinfo) ? 1 : 0;
 	
 		if (($this->id && $access) || ($BE_USER->user['admin'] && !$this->id))	{
@@ -79,7 +79,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 					}
 				</script>
 			';
-			$this->doc->postCode='
+			$this->doc->postCode = '
 				<script language="javascript" type="text/javascript">
 					script_ended = 1;
 					if (top.fsMod) top.fsMod.recentIds["web"] = '.intval($this->id).';
@@ -127,7 +127,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 		$template->init();
 
 		// get the rootline (perhaps not neccessary)
-		$page = t3lib_div::makeInstance('t3lib_pageSelect');
+		$page = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Frontend\Page\PageRepository');
 		$rootline = $page->getRootLine($pageId);
 
 		// we need all templates from rootline (do we?)
@@ -193,18 +193,18 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 		
 		global $LANG;
 
-		$awstats = t3lib_div::makeInstance('tx_icsawstats_awstats');
+		$awstats = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_icsawstats_awstats');
 		$logfilenames_arr = $this->getLogfileNames($this->id);
 
 		$content = '<table border="0" cellspacing="0" cellpadding="1">'."\n";
 
-		if ((count($logfilenames_arr) == 1) && (t3lib_div::_GP('showaws') != 1)) {
+		if ((count($logfilenames_arr) == 1) && (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('showaws') != 1)) {
 			// TODO: Cleanup Code
 			$t3log = $logfilenames_arr[0]['logfilename'];
 			$content.= $this->displayLogfile($awstats, $t3log);
 		}
-		else if (t3lib_div::_GP('showaws')) {
-			$t3log = t3lib_div::_GP('t3log');
+		else if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('showaws')) {
+			$t3log = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('t3log');
 			if ($t3log && $this->is_member_of_logfilenames_arr($logfilenames_arr, $t3log)) {
 				$content.= $this->displayLogfile($awstats, $t3log);
 			} else {
@@ -220,7 +220,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 					$t3log = $logfiledata['logfilename'];
 					$logconfig = $awstats->get_single_logconfig($t3log);
 					// delete update lock files
-					if (t3lib_div::_GP('rmlock') && (t3lib_div::_GP('rmlock') == $t3log)) {
+					if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('rmlock') && (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('rmlock') == $t3log)) {
 						if ($logconfig['browser_update']) {
 							$awstats->unlink_update_lockfile($t3log);
 						}
@@ -277,7 +277,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 
 		// Is it a registered logfile?
 		if ($logconfig['type'] == tx_icsawstats_awstats::$LOGF_REGISTERED) {
-			$aws_wrapper = $SERVER['PHP_SELF'].'?M=web_txicswebawstatsM1&showaws=1&id='.urlencode($this->id).'&t3log='.urlencode($logfilename);
+			$aws_wrapper = \TYPO3\CMS\Backend\Utility\BackendUtility::getModuleUrl('web_txicswebawstatsM1', array('showaws' => '1', 'id' => $this->id, 't3log' => $logfilename));
 			$result = $awstats->call_awstats($logfilename, $aws_wrapper, 0);
 			if (!is_numeric($result)) {
 				return $result;
@@ -320,7 +320,7 @@ class tx_icswebawstats_module1 extends t3lib_SCbase {
 			'save' => ''
 		);
 			// CSH
-		$buttons['csh'] = t3lib_BEfunc::cshItem('_MOD_web_func', '', $GLOBALS['BACK_PATH']);
+		$buttons['csh'] = \TYPO3\CMS\Backend\Utility\BackendUtility::cshItem('_MOD_web_func', '', $GLOBALS['BACK_PATH']);
 
 			// Shortcut
 		if ($GLOBALS['BE_USER']->mayMakeShortcut()) {
@@ -342,7 +342,7 @@ if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ics_web
 
 
 // Make instance:
-$SOBE = t3lib_div::makeInstance('tx_icswebawstats_module1');
+$SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_icswebawstats_module1');
 
 // Include files?
 foreach($SOBE->include_once as $INC_FILE) {
