@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for module &quot;web_txicswebawstatsM1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Logfile Statistics</label>
+			<label index="instruction_title">INSTRUCTION</label>
+			<label index="instruction_text">Please click on the indicated logfile, in order to open the statistic. If no logfile is indicated, the statistics for the appropriate site is not active.</label>
+			<label index="choose_title">CHOOSE A LOGFILE FOR THE ANALYSE</label>
+			<label index="help_title">HELP</label>
+			<label index="help_text">Should unexpected errors occure while using &quot;AWStats&quot;, please contact your administrator.</label>
+			<label index="no_logfile_text">The template of this page doesn't have a logfile record.</label>
+			<label index="no_logfile_selected_text">No logfile selected.</label>
+			<label index="no_config_text">The logfile &quot;%s&quot; isn't yet configured in &quot;AWStats&quot;.</label>
+			<label index="awstats_failed_text">There was something wrong with the call of the AWStats script!</label>
+			<label index="update_locked_text">Update is still in progress by another call. If you are sure that this is not the case delete the update lock file</label>
+			<label index="unknown_error">An unknown error has occured.</label>
+			<label index="click_page">Please click a page title in the page tree.</label>
+			<label index="update_in_progress_text">Update in progress</label>
+			<label index="delete_update_lockfile">Delete update lockfile</label>
+			<label index="open_stats_in_new_window">Open the statistics in a new window</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">Logdatei Statistik</label>
+			<label index="instruction_title">ANLEITUNG</label>
+			<label index="instruction_text">Bitte klicken Sie auf die unten angezeigte Logdatei, um die Auswertung zu öffnen. Wenn keine Logsdatei angezeigt wird, ist die Statistik für die entsprechende Seite nicht aktiv.</label>
+			<label index="choose_title">WÄHLEN SIE EINE LOGDATEI FUER DIE ANALYSE AUS</label>
+			<label index="help_title">HILFE</label>
+			<label index="help_text">Sollten unerwartende Fehler bei der Benutzung von &quot;AWStats&quot; auftreten wenden Sie sich bitte an Ihren Administrator.</label>
+			<label index="no_logfile_text">Das Template dieser Seite enthält keinen Logdatei Datensatz.</label>
+			<label index="no_logfile_selected_text">Keine Logdatei selektiert.</label>
+			<label index="no_config_text">Die Logdatei &quot;%s&quot; wurde bisher noch nicht in &quot;AWStats&quot; eingerichtet!</label>
+			<label index="awstats_failed_text">Der AWStats System-Aufruf ist fehlgeschlagen!</label>
+			<label index="update_locked_text">Die Aktualisierung ist immer noch im Gange aufgrund eines anderen Aufrufs. Falls Sie sicher sind, dass dies nicht der Fall ist, löschen Sie die Aktualisierungs-Sperrdatei.</label>
+			<label index="unknown_error">Ein unbekannter Fehler ist aufgetreten.</label>
+			<label index="click_page">Klicken Sie bitte auf den Seitentitel im Seitenbaum auf der linken Seite.</label>
+			<label index="update_in_progress_text">Aktualisierung im Gange</label>
+			<label index="delete_update_lockfile">Lösche Aktualisierungs-Sperrdatei</label>
+			<label index="open_stats_in_new_window">Statistik in einem neuem Fenster öffnen</label>
+		</languageKey>
+	</data>
+</T3locallang>

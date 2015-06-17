@@ -1,0 +1,27 @@
+2013-12-31 Valentin Schmid <valentin.schmid@newmedia.ch>
+	* Fixed TYPO3 and ics_awstats dependencies
+	* Maintainer change (Special thanks goes to Reto and Davide for keeping this extension up to date)
+
+2011-12-05 Davide Caldelari <davide.caldelari@newmedia.ch>
+	* FIXED: #31465 IE8 Form Problem behoben (Frank Hess).
+
+11-04-18 Reto Zahner <reto.zahner@newmedia.ch>
+	* Some small improvements were added
+	* Needs now at least ics_awstats version 0.4.0
+
+07-07-17 Valentin Schmid  <valli@icsurselva.ch>
+	* Fixed ugly bug (introduced in 0.1.2)
+	* Moved to stable
+
+07-06-12 Valentin Schmid  <valli@icsurselva.ch>
+	* Added manual
+	* Fixed Javascript (top.fsMod.recentIds["web"])
+	* added logfiles of all page types
+	* better HTML
+	* availability to open awstats in a new window
+
+06-09-20 Valentin Schmid  <valli@icsurselva.ch>
+	* Fixed upload from 0.1.0; extension isn't shy anymore
+
+06-09-19 Valentin Schmid  <valli@icsurselva.ch>
+	* Initial release
