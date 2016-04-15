@@ -234,7 +234,7 @@ class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 					}
 					// output logfile
 					if ($logconfig['type'] == tx_icsawstats_awstats::$LOGF_REGISTERED) {
-						$url = $SERVER['PHP_SELF'].'?M=web_txicswebawstatsM1&id='.urlencode($this->id).'&showaws=1&t3log='.urlencode($t3log);
+						$url = $_SERVER['PHP_SELF'].'?M=web_txicswebawstatsM1&id='.urlencode($this->id).'&showaws=1&t3log='.urlencode($t3log);
 						$content .= '<tr><td width="18">';
 						$content.= '<a href="'.htmlspecialchars($url).'" target="_blank">';
 						$content.= '<img src="logfileicon.gif" width="18" height="16" alt="'.htmlspecialchars($LANG->getLL('open_stats_in_new_window')).'" title="'.htmlspecialchars($LANG->getLL('open_stats_in_new_window')).'" />';
