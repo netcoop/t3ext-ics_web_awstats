@@ -125,7 +125,7 @@ class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 		$logfilenames_arr = array();
 
 		// initialize tsparser for extensions
-		$template = t3lib_div::makeInstance('TYPO3\CMS\Core\TypoScript\ExtendedTemplateService');
+		$template = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\TypoScript\ExtendedTemplateService');
 		$template->tt_track = 0;
 		$template->init();
 
