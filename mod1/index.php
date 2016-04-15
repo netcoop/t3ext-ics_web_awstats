@@ -241,11 +241,11 @@ class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 						$content.= '</a>';
 						$content.= '</td><td>';
 						$content.= '<a href="'.htmlspecialchars($url).'">'.$t3log.'</a>';
-						$content.= '</td><td><img src="clear.gif" width="5" height="1" alt="" /></td><td>';
+						$content.= '</td><td style="width: 5px"></td><td>';
 						if ($logfiledata['type'] && $logfiledata['type'] != '') {
 							$content.= 'Type: '.$logfiledata['type'];
 						}
-						$content.= '</td><td><img src="clear.gif" width="5" height="1" alt="" /></td><td>';
+						$content.= '</td><td style="width: 5px"></td><td>';
 						if ($awstats->is_set_update_lockfile($t3log)) {
 							$content.= $LANG->getLL('update_in_progress_text');
 							if ($logconfig['browser_update']) {
