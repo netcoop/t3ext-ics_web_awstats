@@ -174,9 +174,16 @@ class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 	}
 
 	protected function getNoteTr($msg, $msg_colspan=1) {
-		global $BACK_PATH;
+
+		if (version_compare(TYPO3_branch, '7.5', '<')) {
+			$icon = '<img src="' . $GLOBALS['BACK_PATH'] . 'gfx/icon_note.gif" width="18" height="16" border="0" alt="" />';
+		} else {
+			$iconFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconFactory::class);
+			$icon = $iconFactory->getIcon('overlay-info', \TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL)->render();
+		}
+
 		$content = '<tr><td width="18">';
-		$content.= '<img src="'.$BACK_PATH.'gfx/icon_note.gif" width="18" height="16" border="0" alt="" />';
+		$content.= $icon;
 		$content.= '</td><td colspan="'.$msg_colspan.'">';
 		$content.= $msg;
 		$content.= '</td></tr>'."\n";
@@ -184,9 +191,16 @@ class tx_icswebawstats_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 	}
 
 	protected function getWarningTr($msg, $msg_colspan=1) {
-		global $BACK_PATH;
+
+		if (version_compare(TYPO3_branch, '7.5', '<')) {
+			$icon = '<img src="' . $GLOBALS['BACK_PATH'] . 'gfx/icon_warning.gif" width="18" height="16" border="0" alt="" />';
+		} else {
+			$iconFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconFactory::class);
+			$icon = $iconFactory->getIcon('overlay-warning', \TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL)->render();
+		}
+
 		$content = '<tr><td width="18">';
-		$content.= '<img src="'.$BACK_PATH.'gfx/icon_warning.gif" width="18" height="16" border="0" alt="" />';
+		$content.= $icon;
 		$content.= '</td><td colspan="'.$msg_colspan.'">';
 		$content.= '<strong>'.$msg.'</strong>';
 		$content.= '</td></tr>'."\n";
