@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'title' => 'ICS Web AWStats',
 	'description' => 'Provide AWStats Statistics in the Web-Section.',
 	'category' => 'module',
-	'version' => '0.7.0',
+	'version' => '0.7.1',
 	'state' => 'stable',
 	'uploadfolder' => 0,
 	'createDirs' => '',
@@ -28,7 +28,7 @@ $EM_CONF[$_EXTKEY] = array (
 		array (
 			'cms' => '',
 			'typo3' => '6.2.0-7.9.99',
-			'ics_awstats' => '0.6.4-0.7.0',
+			'ics_awstats' => '0.6.4-0.7.1',
 		),
 		'conflicts' =>
 		array (

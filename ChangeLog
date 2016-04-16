@@ -1,3 +1,15 @@
+2016-04-15 Loek Hilgersom <typo3extensions@netcoop.nl>
+	* version 0.7.1
+	* Use IconFactory for TYPO3 version >= 7.5
+	* [BUGFIX] Replace $SERVER by the correct superglobal $_SERVER
+	* [TASK] Remove old-style clear.gif
+	* [TASK] Applying 'use' statements
+	* [BUGFIX] #75489 Replace last remaining reference to t3lib_div
+
+2015-06-19 Loek Hilgersom <typo3extensions@netcoop.nl>
+    * TER release 0.7.0. Fixed compatibility with TYPO3 7.x.x (tested with 7.4-dev)
+	* Update ext to be compatible with TYPO3 6.2
+
 2013-12-31 Valentin Schmid <valentin.schmid@newmedia.ch>
 	* Fixed TYPO3 and ics_awstats dependencies
 	* Maintainer change (Special thanks goes to Reto and Davide for keeping this extension up to date)
